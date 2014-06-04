@@ -18,14 +18,38 @@
   body {
     background-color: white; 
   }
+    .button {
+        margin-top: 2em;
+        font-size: 30px;
+        border: #ccc 1px solid;
+        display: block;
+    }
   </style>
 
 </head>
 <body>
-  <h2>Steroids Repro Template</h2>
-
-  <script>
-    //Add your JavaScripts here
-  </script>
+    <script>
+    var diceButton = new steroids.buttons.NavigationBarButton();
+    diceButton.imagePath = "/dice-32.png"
+    steroids.view.navigationBar.update({
+        title: 'My Awesome App',
+        buttons: {
+            right: [diceButton]
+        }
+    });
+    steroids.view.navigationBar.show();
+    testNavBar = function() {
+        steroids.view.navigationBar.setAppearance({
+            titleTextColor: '#00FF00',
+            buttonTintColor: '#00FF00'
+        })
+        steroids.view.navigationBar.update({
+            buttons: {
+                left: [diceButton]
+            }
+        });
+    }
+    </script>
+    <a onclick="testNavBar()" class="button">Click to test setAppearance()</a>
 </body>
 </html>
